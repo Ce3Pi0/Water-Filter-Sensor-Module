@@ -3,14 +3,15 @@
 #ifndef TEMPERATURESENSOR_H
 #define TEMPERATURESENSOR_H
 
-class TemperatureSensor {
-    private:
-        unsigned int sensorPin;
+#include "Sensor.h"
 
+class TemperatureSensor:protected Sensor {
+    private:
         DallasTemperature sensor;
         float tempValueC, tempValueF;
     public:
         TemperatureSensor(unsigned int);
+
         void begin();
         void readTemp();
         float getTempC();

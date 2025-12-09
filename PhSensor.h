@@ -1,16 +1,17 @@
 #ifndef PHSENSOR_H
 #define PHSENSOR_H
 
+#include "Sensor.h"
 #include "DFRobot_PH.h"
 
-class PhSensor {
+
+class PhSensor:protected Sensor {
   private:
     DFRobot_PH sensor;
     float phVoltage, phValue;
-    unsigned short sensorPin;
 
   public:
-    PhSensor(unsigned int sensorPin);
+    PhSensor(unsigned int);
 
     void begin();
     void getPhVoltage();

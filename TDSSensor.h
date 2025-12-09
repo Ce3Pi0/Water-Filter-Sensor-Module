@@ -1,10 +1,10 @@
 #ifndef TDSSENSOR_H
 #define TDSSENSOR_H
 
-class TDSSensor {
-    private:
-        unsigned int sensorPin;
+#include "Sensor.h"
 
+class TDSSensor:protected Sensor {
+    private:
         static const int SCOUNT = 30;
         const float VREF = 5.0f;
 
@@ -14,6 +14,7 @@ class TDSSensor {
         float averageVoltage = 0.0f, tdsValue = 0.0f;
     public:
         TDSSensor(unsigned int);
+
         void begin();
         void getTdsSamples();
         float readTdsValue(float);
